@@ -1,0 +1,12 @@
+{% extends "oppcore/base.html" %}
+{% load i18n %}
+{% block content %}
+    <h2>{% translate "Zostałeś wylogowany" %}</h2>
+
+        <div class="border-top pt-4">
+            <small class="text-muted">
+                <a href="{% url 'login' %}">{% translate "Zaloguj Ponownie" %}</a>
+            </small>
+        </div>
+
+{% endblock content %}

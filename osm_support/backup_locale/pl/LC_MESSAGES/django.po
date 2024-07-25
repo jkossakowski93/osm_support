@@ -1,0 +1,294 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-31 19:03+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n"
+"%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
+"%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+#: .\oppcore\models.py:37 .\oppcore\models.py:70 .\oppcore\models.py:84
+msgid "name"
+msgstr "Nazwa"
+
+#: .\oppcore\models.py:38
+msgid "type"
+msgstr "Rodzaj"
+
+#: .\oppcore\models.py:39
+msgid "OPP"
+msgstr ""
+
+#: .\oppcore\models.py:39
+msgid "Fundacja"
+msgstr ""
+
+#: .\oppcore\models.py:39
+msgid "Inne"
+msgstr ""
+
+#: .\oppcore\models.py:41 .\oppcore\models.py:85
+#, fuzzy
+#| msgid "Adres"
+msgid "address"
+msgstr "Adres"
+
+#: .\oppcore\models.py:42 .\oppcore\models.py:86
+#, fuzzy
+#| msgid "E-mail"
+msgid "email"
+msgstr "E-mail"
+
+#: .\oppcore\models.py:43
+msgid "krs_no"
+msgstr "Numer KRS"
+
+#: .\oppcore\models.py:46
+msgid "scope"
+msgstr "Zakres"
+
+#: .\oppcore\models.py:87
+#, fuzzy
+#| msgid "phone_no"
+msgid "phone_no_1"
+msgstr "1. numer telefonu"
+
+#: .\oppcore\models.py:88
+#, fuzzy
+#| msgid "phone_no"
+msgid "phone_no_2"
+msgstr "2. numer telefonu"
+
+#: .\oppcore\models.py:89
+msgid "geo_lat"
+msgstr "Szerokość geograficzna"
+
+#: .\oppcore\models.py:90
+msgid "geo_long"
+msgstr "Długość geograficzna"
+
+#: .\oppcore\models.py:91
+msgid "description"
+msgstr "Opis"
+
+#: .\oppcore\models.py:92
+msgid "spot_needs"
+msgstr "Czego poszukuje punkt:"
+
+#: .\oppcore\models.py:93
+msgid "spot_offers"
+msgstr "Co punkt może zaoferować:"
+
+#: .\oppcore\models.py:97
+msgid "availability"
+msgstr "Dostępność"
+
+#: .\oppcore\models.py:98
+msgid "status"
+msgstr "Status"
+
+#: .\oppcore\models.py:99
+msgid "Verified"
+msgstr "Potwierdzony"
+
+#: .\oppcore\models.py:99
+msgid "Unverified"
+msgstr "Niepotwierdzony"
+
+#: .\oppcore\models.py:99
+msgid "Inactive"
+msgstr "Nieaktywny"
+
+#: .\oppcore\templates\oppcore\add_opp.html:9
+msgid "Dodaj Nową Organizację"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\add_opp.html:13
+#: .\oppcore\templates\oppcore\add_opp_spot.html:27
+#: .\oppcore\templates\oppcore\add_opp_spot_category.html:14
+#: .\oppcore\templates\oppcore\login.html:14
+msgid "Potwierdź"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\add_opp.html:16
+#: .\oppcore\templates\oppcore\add_opp_spot.html:28
+#: .\oppcore\templates\oppcore\add_opp_spot_category.html:17
+msgid "Anuluj"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\add_opp_spot.html:19
+msgid "Dodaj Nowy Punkt Pomocy"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\add_opp_spot.html:29
+#: .\oppcore\templates\oppcore\home_global_coordinator.html:67
+#: .\oppcore\templates\oppcore\opp_details.html:30
+msgid "Dodaj Kategorię"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\add_opp_spot_category.html:10
+msgid "Dodaj Nową Kategorię"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\home_global_coordinator.html:10
+msgid "Nazwa OPP"
+msgstr "Nazwa OPP"
+
+#: .\oppcore\templates\oppcore\home_global_coordinator.html:11
+#: .\oppcore\templates\oppcore\opp_details.html:10
+#: .\oppcore\templates\oppcore\opp_details.html:57
+#: .\oppcore\templates\oppcore\oppspot_details.html:10
+msgid "Adres"
+msgstr "Adres"
+
+#: .\oppcore\templates\oppcore\home_global_coordinator.html:12
+#: .\oppcore\templates\oppcore\opp_details.html:11
+msgid "E-mail"
+msgstr "E-mail"
+
+#: .\oppcore\templates\oppcore\home_global_coordinator.html:13
+#: .\oppcore\templates\oppcore\opp_details.html:12
+msgid "Zakres działania"
+msgstr "Zakres działania"
+
+#: .\oppcore\templates\oppcore\home_global_coordinator.html:46
+#: .\oppcore\templates\oppcore\opp_details.html:99
+msgid "Szczegóły"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\home_global_coordinator.html:66
+msgid "Dodaj Organizację"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\login.html:9
+msgid "Logowanie"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\logout.html:4
+msgid "Zostałeś wylogowany"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\logout.html:8
+msgid "Zaloguj Ponownie"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\opp_details.html:9
+#: .\oppcore\templates\oppcore\oppspot_details.html:8
+msgid "Nazwa organizacji"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\opp_details.html:13
+msgid "Admini"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\opp_details.html:19
+msgid "Koordynatorzy"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\opp_details.html:28
+#: .\oppcore\templates\oppcore\oppspot_details.html:22
+msgid "Powrót"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\opp_details.html:29
+msgid "Dodaj Punkt Pomocy"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\opp_details.html:31
+msgid "Edytuj Dane Organizacji"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\opp_details.html:38
+msgid "Ostatnia edycja"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\opp_details.html:42
+msgid "Organizacja nie była jeszcze modyfikowana"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\opp_details.html:48
+msgid "Lista Punktów Pomocy"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\opp_details.html:56
+msgid "Nazwa punktu"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\opp_details.html:58
+#: .\oppcore\templates\oppcore\oppspot_details.html:9
+msgid "Kategoria"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\opp_details.html:59
+msgid "Numer telefonu"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\opp_details.html:60
+msgid "Potrzebuje:"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\opp_details.html:61
+msgid "Oferuje:"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\opp_details.html:62
+msgid "Status"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\opp_details.html:63
+msgid "Dostępny do:"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\oppspot_details.html:11
+msgid "Numer kontaktowy"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\oppspot_details.html:12
+msgid "Współrzędne"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\oppspot_details.html:13
+msgid "Dostępne do:"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\oppspot_details.html:14
+#: .\oppcore\templates\oppcore\oppspot_details.html:17
+msgid "Opis"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\oppspot_details.html:15
+msgid "Czego punkt potrzebuje"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\oppspot_details.html:16
+msgid "Co punkt oferuje"
+msgstr ""
+
+#: .\oppcore\templates\oppcore\oppspot_details.html:23
+msgid "Edytuj Punkt Pomocy"
+msgstr ""
+
+#: .\osm_support\settings.py:123
+msgid "Polish"
+msgstr "Polski"
+
+#: .\osm_support\settings.py:124
+msgid "English"
+msgstr "Angielski"
+
+#: .\osm_support\settings.py:125
+msgid "Ukrainian"
+msgstr "Ukraiński"

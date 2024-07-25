@@ -1,0 +1,129 @@
+{% extends "oppcore/base.html" %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block content %}
+
+
+    <div class = "mb-2">
+        <a class="btn btn-danger" href="{% url 'home' %}">{% translate "Powrót" %}</a>
+        <a class="btn btn-success" href="{% url 'add_opp_spot' opp.id%}">{% translate "Dodaj Punkt Pomocy" %}</a>
+        <a class="btn btn-info" href="{% url 'add_opp_spot_category'%}">{% translate "Dodaj Kategorię" %}</a>
+        <a class="btn btn-info" href="{% url 'edit_opp' opp.id%}">{% translate "Edytuj Dane Organizacji" %}</a>
+    </div>
+    <div class = "mt-1">
+        {% if request.user.is_superuser or 1_bool %}
+            <a class="btn btn-success" href="{% url 'register_local_admin' opp.id%}">{% translate "Dodaj Lokalnego Admina" %}</a>
+            <a class="btn btn-success" href="{% url 'register_local_coordinator' opp.id%}">{% translate "Dodaj Lokalnego Koordynatora" %}</a>
+        {% endif %}
+    </div>
+
+    <table class="table">
+      <tbody>
+        <tr><td>#</td><th scope="row">{{ opp.id }}</th></tr>
+        <tr><td>{% translate "Nazwa organizacji" %}</td><th>{{ opp.name }}</th></tr>
+        <tr><td>{% translate "Adres" %}</td><th>{{ opp.address }}</th></tr>
+        <tr><td>{% translate "E-mail" %}</td><th>{{ opp.email }}</th></tr>
+        <tr><td>{% translate "Zakres działania PL" %}</td><th>{{ opp.pl_scope }}</th></tr>
+        <tr><td>{% translate "Zakres działania EN" %}</td><th>{{ opp.en_scope }}</th></tr>
+        <tr><td>{% translate "Zakres działania UK" %}</td><th>{{ opp.uk_scope }}</th></tr>
+        <tr><td>{% translate "Admini" %}</td><th>
+            {% for user in opp.admins.user_set.all %}
+                <tr><td></td><th>{{ user.username }}</th></tr>
+            {% endfor %}
+        </th></tr>
+
+        <tr><td>{% translate "Koordynatorzy" %}</td><th>
+            {% for user in opp.coordinators.user_set.all %}
+                <tr><td></td><th>{{ user.username }}</th></tr>
+            {% endfor %}
+        </th></tr>
+      </tbody>
+    </table>
+
+    <div class="pt-3">
+        {% if opphistory %}
+
+        <p><small>{% translate "Ostatnia edycja" %}: {{ opphistory.last_modified|date:"h:i d.m.Y" }} przez {{ opphistory.user }} - {{ opphistory.modification_type }}</small></p>
+
+        {% else %}
+        <div class="mb-3">
+            <h>{% translate "Organizacja nie była jeszcze modyfikowana" %}</h>
+        </div>
+        {% endif %}
+    </div>
+
+
+    <div class="mb-5 mt-5"><h3>{% translate "Lista Punktów Pomocy" %}</h3></div>
+
+    <div>
+
+        <table id="table_id" class="table table-sm table-hover">
+        <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">{% translate "Nazwa punktu" %}</th>
+              <th scope="col">{% translate "Adres" %}</th>
+              <th scope="col">{% translate "Kategoria" %}</th>
+              <th scope="col">{% translate "Numer telefonu" %}</th>
+              <th scope="col">{% translate "Potrzebuje:" %}</th>
+              <th scope="col">{% translate "Oferuje:" %}</th>
+              <th scope="col">{% translate "Status" %}</th>
+              <th scope="col">{% translate "Dostępny do:" %}</th>
+              <th scope="col"> </th>
+            </tr>
+         </thead>
+        <tbody>
+
+        </tbody>
+        </table>
+
+        {% block js %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'DataTables/datatables.min.css' %}"/>
+        <script type="text/javascript" src="{% static 'DataTables/datatables.min.js' %}"></script>
+
+        <script>
+            $(document).ready( function() {
+            $('#table_id').DataTable({
+
+            "deferRender": true,
+            "ajax": {
+            "url": "{{data_url}}",
+            "type": "GET",
+            'data':{},
+
+            },
+            "columns": [
+                { "data": "pk", "orderable": true },
+                { "data": "name", "orderable": true },
+                { "data": "category", "orderable": true },
+                { "data": "address", "orderable": true },
+                { "data": "phone_no", "orderable" : true },
+                { "data": "spot_needs", "orderable" : true },
+                { "data": "spot_offers", "orderable" : true },
+                { "data": "status", "orderable" : true },
+                { "data": "availability", "orderable" : true },
+                { "data": null, "render": function ( data, type, row, meta ) {
+                    return '<a href="/{{LANGUAGE_CODE}}/{{ opp.id }}/'+data.pk+'/"><button class="btn btn-outline-info">{% translate "Szczegóły" %}</button></a>';
+                   }
+                }
+            ],
+            paging: true,
+            "scrollCollapse": true,
+            "orderClasses": false,
+            "order":[[1,'asc']],
+            "lengthMenu": [15, 30, 100],
+            buttons: {
+                name: 'primary',
+
+
+                }
+                });
+            } );
+        </script>
+        {% endblock js %}
+    </div>
+
+
+
+{% endblock content %}

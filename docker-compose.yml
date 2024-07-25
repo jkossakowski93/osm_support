@@ -1,0 +1,31 @@
+version: "3.7"
+
+services:
+  osm_support:
+    build: osm_support
+    container_name: osm_container
+    restart: always
+    #env_file:
+    #  - django.env
+    ports:
+      - "7000:7000"
+    volumes:
+      - ./osm_support/:/src/
+      # - ./osm_support/static/:/src/static/
+      # - ./osm_support/static/admin/:/src/static/admin/
+      # - ./osm_support/static/sthetocad/:/src/static/osm_support/
+      # - ./osm_support/static/DataTables/:/src/static/DataTables/
+    command:
+      #python3 manage.py runserver 0.0.0.0:8000
+      gunicorn --workers=3 --log-level debug --bind=0.0.0.0:7000 osm_support.wsgi:application
+
+  nginx:
+    image: nginx:1.17
+    container_name: ngx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./osm_support/static/:/src/static/
+    depends_on:
+      - osm_support

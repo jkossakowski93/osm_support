@@ -1,0 +1,31 @@
+{% extends "oppcore/base.html" %}
+{% load i18n %}
+{% block content %}
+
+    <table class="table">
+      <tbody>
+        <tr><td>#</td><th scope="row">{{ oppspot.id }}</th></tr>
+        <tr><td>{% translate "Nazwa organizacji" %}</td><th>{{ oppspot.name }}</th></tr>
+        <tr><td>{% translate "Kategoria" %}</td><th>{{ oppspot.category }}</th></tr>
+        <tr><td>{% translate "Adres" %}</td><th>{{ oppspot.address }}</th></tr>
+        <tr><td>{% translate "Numer kontaktowy" %}</td><th>{{ oppspot.phone_no }}</th></tr>
+        <tr><td>{% translate "Współrzędne" %}</td><th>{{ oppspot.geo_lat }}, {{ oppspot.geo_long }}</th></tr>
+        <tr><td>{% translate "Dostępne do:" %}</td><th>{{ oppspot.availability }}</th></tr>
+        <tr><td>{% translate "Opis" %}</td><th>{{ oppspot.description }}</th></tr>
+        <tr><td>{% translate "Czego punkt potrzebuje" %}</td><th>{{ oppspot.spot_needs }}</th></tr>
+        <tr><td>{% translate "Co punkt oferuje" %}</td><th>{{ oppspot.spot_offers }}</th></tr>
+        <tr><td>{% translate "Opis" %}</td><th>{{ oppspot.description }}</th></tr>
+
+    </table>
+
+    <div class = "mb-2">
+        <a class="btn btn-danger" href="{% url 'opp_details' opp_id%}">{% translate "Powrót" %}</a>
+        <a class="btn btn-success" href="{% url 'edit_opp_spot' opp_id oppspot_id%}">{% translate "Edytuj Punkt Pomocy" %}</a>
+    </div>
+
+    <div class = "mb-2"><img  src={{ oppspotphotos.image1.url }}></div>
+    <div class = "mb-2"><img  src={{ oppspotphotos.image2.url }}></div>
+    <div class = "mb-2"><img  src={{ oppspotphotos.image3.url }}></div>
+
+
+{% endblock content %}

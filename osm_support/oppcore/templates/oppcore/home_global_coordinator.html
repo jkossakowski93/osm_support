@@ -1,0 +1,78 @@
+{% extends "oppcore/base.html" %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block content %}
+
+    <table id="table_id" class="table table-sm table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">{% translate "Nazwa OPP" %}</th>
+          <th scope="col">{% translate "Adres" %}</th>
+          <th scope="col">{% translate "E-mail" %}</th>
+          <th scope="col">{% translate "Zakres działania" %}</th>
+          <th scope="col"> </th>
+        </tr>
+      </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    {% block js %}
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'DataTables/datatables.min.css' %}"/>
+    <script type="text/javascript" src="{% static 'DataTables/datatables.min.js' %}"></script>
+
+    <script>
+        $(document).ready( function() {
+        $('#table_id').DataTable({
+
+        "deferRender": true,
+        "ajax": {
+        "url": "{{data_url}}",
+        "type": "GET",
+        'data':{},
+
+        },
+        "columns": [
+            { "data": "pk", "orderable": true },
+            { "data": "name", "orderable": true },
+            { "data": "address", "orderable": true },
+            { "data": "email", "orderable" : true },
+            { "data": "scope", "orderable" : true },
+            { "data": null, "render": function ( data, type, row, meta ) {
+                return '<a href="/{{ LANGUAGE_CODE }}/'+data.pk+'/"><button class="btn btn-outline-info">{% translate "Szczegóły" %}</button></a>';
+               }
+            }
+        ],
+        paging: true,
+        "scrollCollapse": true,
+        "orderClasses": false,
+        "order":[[1,'asc']],
+        "lengthMenu": [15, 30, 100],
+        buttons: {
+            name: 'primary',
+
+
+            }
+            });
+        } );
+    </script>
+    {% endblock js %}
+
+    <div class = "mb-2">
+        <a class="btn btn-success" href="{% url 'add_opp' %}">{% translate "Dodaj Organizację" %}</a>
+        <a class="btn btn-info" href="{% url 'add_opp_spot_category'%}">{% translate "Dodaj Kategorię" %}</a>
+        {% if request.user.is_superuser %}
+        <a class="btn btn-success" href="{% url 'register_global_admin'%}">{% translate "Dodaj Globalnego Admina" %}</a>
+        <a class="btn btn-success" href="{% url 'register_global_coordinator'%}">{% translate "Dodaj Globalnego Koordynatora" %}</a>
+        {% endif %}
+    </div>
+
+
+{% endblock content %}
+
+
+

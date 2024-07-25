@@ -1,0 +1,5 @@
+/venv/
+/.idea/.gitignore
+/.idea/
+*.cpython-38.pyc
+**/__pycache__
